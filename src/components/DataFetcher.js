@@ -28,11 +28,11 @@ const DataFetcher = () => {
       {error ? error : ''}
       <h1>Fetching Data:</h1>
       {/* <code>{data}</code> */}
-      <ul>
+      <pre>
 
         {data ? JSON.stringify(data)
          : 'No data found'}  
-      </ul>
+      </pre>
     </div>
   );
 };
