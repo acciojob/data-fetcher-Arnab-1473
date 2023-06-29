@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const DataFetcher = () => {
   const [data, setData] = useState();
-  const [error, setError] = useEffect("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -17,9 +17,9 @@ const DataFetcher = () => {
         console.log(product); // Log the fetched data to the console
         setData(product); // Update the state with the fetched data
       })
-      .catch((error) => {
+      .catch((err) => {
         // console.error('Error fetching data:', error);
-        setError(error);
+        setError(err);
       });
   };
 
@@ -27,11 +27,11 @@ const DataFetcher = () => {
     <div>
       {error ? error : ''}
       <h1>Fetching Data:</h1>
+      {/* <code>{data}</code> */}
       <ul>
 
-        {data ? data.products.map((item, index) => (
-          <pre key={index}>{item.title}</pre>
-        )) : 'No data found'}  
+        {data ? JSON.stringify(data)
+         : 'No data found'}  
       </ul>
     </div>
   );
